@@ -3,6 +3,8 @@
 import subprocess
 import optparse
 import re
+
+
 # command = "ifconfig -a | sed \'s/[ \t].*//;/^$/d\'"  # the shell command
 # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=None, shell=True)
 #
@@ -34,10 +36,10 @@ def get_arguments():
 
 
 def change_mac(interface, new_mac):
-		 print("[+] changing the mac address for {} to {}".format(interface,new_mac))
-		 subprocess.call(["ifconfig", interface, "down"])
-		 subprocess.call(["ifconfig", interface, "hw","ether",new_mac])
-		 subprocess.call(["ifconfig", interface, "up"])
+	print("[+] changing the mac address for {} to {}".format(interface,new_mac))
+	subprocess.call(["ifconfig", interface, "down"])
+	subprocess.call(["ifconfig", interface, "hw","ether",new_mac])
+	subprocess.call(["ifconfig", interface, "up"])
 
 
 def get_current_mac(interface):
